@@ -1,5 +1,5 @@
 #!/bin/bash
 # example of using arguments to a script
-echo "My first name is $1"
-echo "My surname is $2"
-echo "Total number of arguments is $#
+echo "My first name is $1" #$1 is replaced with the first argument and used as the First Name
+echo "My surname is $2" #$2 is replaced with the second argument and used as the Last Name
+echo "Total number of arguments is $# #total number of arguments is shown here
