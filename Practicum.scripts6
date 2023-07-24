@@ -1,14 +1,14 @@
 #!/bin/bash
-while read first last;
+while read first last; ;  #Read input lines first and last
 do
-name= "$first $last"
-username="$last${first:0:1}"
-n=`egrep –c $username /etc/passwd`
+name= "$first $last" #Creats a name variable combineing first and last name 
+username="$last${first:0:1}" }" #Creats an username variable with the last name and the first character of the first name.
+n=`egrep –c $username /etc/passwd` # search for  the username variable in the /etc/passwd directory
 n=$((n+1))
-username=$username$n
-useradd -m $username
-password=`tr -cd '[:alpha:]' < /dev/random | head -c8`
+username=$username$n #creats username plus the n above
+useradd -m $username # Creats an username with directory
+password=`tr -cd '[:alpha:]' < /dev/random | head -c8` # generates a ranmdom password with eight characters with no alphabetic characters.
 # notice difference between the ` and ‘ characters in the line above
-echo $password | passwd --stdin $username
-echo "$username $password" >> /root/tempPasswords
-done
+echo $password | passwd --stdin $username #Sets the password for the newly created user account and shows it in standard input.
+echo "$username $password" >> /root/tempPasswords # Records the password to /root/tempPasswords
+done 
