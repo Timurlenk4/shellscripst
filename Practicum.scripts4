@@ -1,9 +1,9 @@
 #!/bin/bash
-input =“./names.txt”
-while IFS=, read -r first last; # notice the comma after the equal sign
-do
-name="$first $last"
-username="${first:0:1}$last"
-useradd -m $username -s /bin/bash
-done < "$input"
-tail -8 /etc/passwd
+input =“./names.txt” #store the file path of the input txt file
+while IFS=, read -r first last; #Reads each line of the file specified by $input and splits the line into the variables first and last.
+name="$first $last" #Creats an new 'name' which combines bothe first and last name
+username="${first:0:1}$last" #Creats an username useing both first and last name
+useradd -m $username -s /bin/bash #Creates an new user with a directory using the username created above.
+done < "$input" #Ends the loop
+tail -8 /etc/passwd #Prints the last 8 lines of the /etc/passwd file
+
